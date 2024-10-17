@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      debugShowCheckedModeBanner: false,
       home: const HomePage(),
     );
   }
@@ -30,17 +31,18 @@ class HomePage extends StatelessWidget {
         title: Row(
           children: [
             Image.asset(
-              'images/Ubu_logo.png',
+              'images/Ubu_logo.png', // ตรวจสอบให้แน่ใจว่าโลโก้อยู่ในโฟลเดอร์นี้
               height: 40,
             ),
-            SizedBox(width: 10),
-            Expanded(
-                child: Text(
-              'UBU Training',
-              style: TextStyle(
-                overflow: TextOverflow.ellipsis,
+            const SizedBox(width: 10),
+            const Expanded(
+              child: Text(
+                'UBU Training',
+                style: TextStyle(
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
-            ))
+            )
           ],
         ),
         backgroundColor: const Color.fromARGB(255, 254, 254, 254),
@@ -80,7 +82,7 @@ class HomePage extends StatelessWidget {
                   CourseCard(
                     title:
                         'วิศวกรรมยานยนต์ไฟฟ้าสมัยใหม่\n(Modern Electric Vehicle Engineering)',
-                    imageUrl: 'images/jjj.jpg',
+                    imageUrl: 'images/jjj.jpg', // ใช้ Image.asset แทน
                     date: 'วันที่อบรม: 25 ต.ค. 2567 - 27 ต.ค. 2567 (09:00 - 16:00)',
                     applyDate: 'เปิดรับสมัครถึงวันที่: 23 ต.ค. 2567',
                   ),
@@ -122,7 +124,7 @@ class CourseCard extends StatelessWidget {
               topLeft: Radius.circular(15),
               topRight: Radius.circular(15),
             ),
-            child: Image.network(
+            child: Image.asset( // ใช้ Image.asset เพื่อแสดงภาพที่อยู่ในโฟลเดอร์ local
               imageUrl,
               height: 200,
               width: double.infinity,

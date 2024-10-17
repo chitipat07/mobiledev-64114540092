@@ -1,7 +1,11 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:ubu_training/register_page.dart';
 import 'auth_service.dart'; // ไฟล์ที่มีฟังก์ชัน login
-import 'home.dart'; // ไฟล์ HomePage ที่จะแสดงหลังจากล็อกอินสำเร็จ
+import 'home_admin.dart'; // ไฟล์ HomePage สำหรับผู้ใช้ admin
+import 'home_user.dart'; // ไฟล์ HomePage สำหรับผู้ใช้ทั่วไป
+import 'package:ubu_training/register.dart' as register;
 
 class LoginPage extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
@@ -42,13 +46,25 @@ class LoginPage extends StatelessWidget {
                     const SnackBar(content: Text('Login successful')),
                   );
 
-                  // นำผู้ใช้ไปยังหน้า HomePage และส่ง username
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => HomePage(username: user.username),
-                    ),
-                  );
+                  // ตรวจสอบประเภทของผู้ใช้
+                  if (user.isAdmin) {
+                    // ถ้าเป็น admin นำไปยังหน้า HomeAdmin
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            HomeAdmin(username: user.username),
+                      ),
+                    );
+                  } else {
+                    // ถ้าเป็น user ธรรมดา นำไปยังหน้า HomeUser
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomeUser(username: user.username),
+                      ),
+                    );
+                  }
                 } catch (e) {
                   // แสดงข้อความเมื่อเข้าสู่ระบบไม่สำเร็จ
                   ScaffoldMessenger.of(context).showSnackBar(
@@ -63,7 +79,8 @@ class LoginPage extends StatelessWidget {
                 // นำไปยังหน้า RegisterPage เมื่อผู้ใช้กดปุ่มสมัครสมาชิก
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => RegisterPage()),
+                  MaterialPageRoute(
+                      builder: (context) => register.RegisterPage()),
                 );
               },
               child: const Text('Don\'t have an account? Register here'),
