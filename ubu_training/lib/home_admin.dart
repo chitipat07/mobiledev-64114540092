@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pocketbase/pocketbase.dart';
 import 'package:ubu_training/login_page.dart';
 import 'create_course_page.dart'; // สร้างหน้าสำหรับสร้างคอร์ส
-import 'package:ubu_training/course_detail.dart';
+import 'package:ubu_training/course_detail_admin.dart';
 import 'edit_course.dart'; // เพิ่มการนำเข้าไฟล์ EditCoursePage
 import 'delete_course.dart'; // เพิ่มการนำเข้าไฟล์ DeleteCoursePage
 
@@ -123,7 +123,7 @@ class _HomeAdminState extends State<HomeAdmin> {
                               currentParticipants: int.tryParse(course.data['currentParticipants'].toString()) ?? 0,
                               location: course.getString('location'),
                               additionalInfo: course.getString('additionalInfo'),
-                              certificate: course.getString('certificate'),
+                              certificate: course.getString('certificate'),                              
                             ),
                           ),
                         );

@@ -61,7 +61,10 @@ class LoginPage extends StatelessWidget {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => HomeUser(username: user.username),
+                        builder: (context) => HomeUser(
+                          username: user.username,
+                          userId: user.id, // ส่งค่า userId ไปด้วย
+                        ),
                       ),
                     );
                   }

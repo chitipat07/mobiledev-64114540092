@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ubu_training/Co_register.dart'; // หน้าที่จะไปหลังจากลงทะเบียน
 
 class CourseDetailPage extends StatelessWidget {
   final String courseTitle;
@@ -13,9 +12,6 @@ class CourseDetailPage extends StatelessWidget {
   final String additionalInfo;
   final String certificate;
 
-  final String userId; // เพิ่มตัวแปร userId เพื่อส่งไปที่หน้าลงทะเบียน
-  final String courseId; // เพิ่มตัวแปร courseId เพื่อส่งไปที่หน้าลงทะเบียน
-
   const CourseDetailPage({
     Key? key,
     required this.courseTitle,
@@ -28,8 +24,6 @@ class CourseDetailPage extends StatelessWidget {
     required this.location,
     required this.additionalInfo,
     required this.certificate,
-    required this.userId, // เพิ่มตัวแปรที่จำเป็นในการลงทะเบียน
-    required this.courseId, // เพิ่มตัวแปรที่จำเป็นในการลงทะเบียน
   }) : super(key: key);
 
   @override
@@ -50,7 +44,7 @@ class CourseDetailPage extends StatelessWidget {
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
-
+              
               // Course Description
               Text(
                 courseDescription,
@@ -107,28 +101,6 @@ class CourseDetailPage extends StatelessWidget {
                 icon: Icons.card_membership,
                 title: "การออกใบประกาศนียบัตร",
                 content: certificate,
-              ),
-
-              const SizedBox(height: 20),
-
-              // Register button (ไม่ต้องเช็ค isUser)
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    // นำไปยังหน้า CoRegisterPage พร้อมส่งค่า userId และ courseId
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CoRegisterPage(
-                          userId: userId, // ส่งค่า userId ไปที่หน้า CoRegisterPage
-                          courseId: courseId, // ส่งค่า courseId ไปที่หน้า CoRegisterPage
-                        ),
-                      ),
-                    );
-                  },
-                  child: Text('ลงทะเบียน'),
-                ),
               ),
             ],
           ),

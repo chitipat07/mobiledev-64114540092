@@ -17,8 +17,9 @@ Future<List<RecordModel>> fetchCourses() async {
 
 class HomeUser extends StatelessWidget {
   final String username;
+  final String userId; // เพิ่ม userId
 
-  HomeUser({required this.username});
+  HomeUser({required this.username, required this.userId}); // เพิ่มการรับ userId
 
   @override
   Widget build(BuildContext context) {
@@ -73,8 +74,7 @@ class HomeUser extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: RefreshIndicator(
           onRefresh: () async {
-            // เมื่อมีการดึงเพื่อรีเฟรช จะเรียกใช้งาน fetchCourses เพื่ออัปเดตข้อมูล
-            fetchCourses();
+            await fetchCourses(); // คืนค่า fetchCourses() เพื่อให้ Refresh ทำงานได้
           },
           child: FutureBuilder<List<RecordModel>>(
             future: fetchCourses(),
@@ -97,6 +97,8 @@ class HomeUser extends StatelessWidget {
                   final course = courses[index];
                   return GestureDetector(
                     onTap: () {
+                      String courseId = course.id; // รับค่า courseId
+
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -104,20 +106,15 @@ class HomeUser extends StatelessWidget {
                             courseTitle: course.getString('courseName'),
                             courseDescription: course.getString('description'),
                             date: course.getString('courseDate'),
-                            applyDate:
-                                'เปิดรับสมัครถึงวันที่: ${course.getString('registrationOpenDate')}',
+                            applyDate: 'เปิดรับสมัครถึงวันที่: ${course.getString('registrationOpenDate')}',
                             teacher: course.getString('teacher'),
-                            maxParticipants: int.tryParse(course
-                                    .data['maxParticipants']
-                                    .toString()) ??
-                                0,
-                            currentParticipants: int.tryParse(course
-                                    .data['currentParticipants']
-                                    .toString()) ??
-                                0,
+                            maxParticipants: int.tryParse(course.data['maxParticipants'].toString()) ?? 0,
+                            currentParticipants: int.tryParse(course.data['currentParticipants'].toString()) ?? 0,
                             location: course.getString('location'),
                             additionalInfo: course.getString('additionalInfo'),
                             certificate: course.getString('certificate'),
+                            userId: userId, // ส่ง userId ไปที่ CourseDetailPage
+                            courseId: courseId, // ส่ง courseId ไปที่ CourseDetailPage
                           ),
                         ),
                       );
@@ -127,8 +124,7 @@ class HomeUser extends StatelessWidget {
                       imageUrl:
                           'https://partially-magical-cougar.ngrok-free.app/api/files/${course.collectionId}/${course.id}/${course.getString('image')}',
                       date: course.getString('courseDate'),
-                      applyDate:
-                          'เปิดรับสมัครถึงวันที่: ${course.getString('registrationOpenDate')}',
+                      applyDate: 'เปิดรับสมัครถึงวันที่: ${course.getString('registrationOpenDate')}',
                     ),
                   );
                 },
@@ -140,8 +136,6 @@ class HomeUser extends StatelessWidget {
     );
   }
 }
-
-// ... (โค้ดส่วนที่เหลือ)
 
 extension RecordModelExtensions on RecordModel {
   String getString(String fieldName) {
