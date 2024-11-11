@@ -3,7 +3,7 @@ import 'package:pocketbase/pocketbase.dart';
 import 'package:ubu_training/course_detail.dart';
 import 'package:ubu_training/login_page.dart';
 
-final pb = PocketBase('https://partially-magical-cougar.ngrok-free.app');
+final pb = PocketBase('https://chitipat07.pockethost.io');
 
 Future<List<RecordModel>> fetchCourses() async {
   try {

@@ -6,7 +6,7 @@ import 'package:ubu_training/course_detail_admin.dart';
 import 'edit_course.dart'; // เพิ่มการนำเข้าไฟล์ EditCoursePage
 import 'delete_course.dart'; // เพิ่มการนำเข้าไฟล์ DeleteCoursePage
 
-final pb = PocketBase('https://partially-magical-cougar.ngrok-free.app');
+final pb = PocketBase('https://chitipat07.pockethost.io');
 
 class HomeAdmin extends StatefulWidget {
   final String username;

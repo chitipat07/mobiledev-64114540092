@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pocketbase/pocketbase.dart';
 
-final pb = PocketBase('https://partially-magical-cougar.ngrok-free.app');
+final pb = PocketBase('https://chitipat07.pockethost.io');
 
 class CoRegisterPage extends StatelessWidget {
   final String userId;  // User ID ที่จะใช้ในการลงทะเบียน

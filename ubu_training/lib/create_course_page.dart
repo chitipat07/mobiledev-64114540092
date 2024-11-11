@@ -4,7 +4,7 @@ import 'package:pocketbase/pocketbase.dart';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 
-final pb = PocketBase('https://partially-magical-cougar.ngrok-free.app');
+final pb = PocketBase('https://chitipat07.pockethost.io');
 
 class CreateCoursePage extends StatefulWidget {
   final bool isEditing;

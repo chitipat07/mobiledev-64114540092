@@ -7,7 +7,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  final pb = PocketBase('http://127.0.0.1:8090/');
+  final pb = PocketBase('https://chitipat07.pockethost.io');
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();

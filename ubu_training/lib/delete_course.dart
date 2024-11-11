@@ -1,6 +1,6 @@
 import 'package:pocketbase/pocketbase.dart';
 
-final pb = PocketBase('https://partially-magical-cougar.ngrok-free.app');
+final pb = PocketBase('https://chitipat07.pockethost.io');
 
 Future<void> deleteCourse(String courseId) async {
   try {

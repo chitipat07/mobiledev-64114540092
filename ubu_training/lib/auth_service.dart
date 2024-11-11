@@ -1,7 +1,7 @@
 import 'package:pocketbase/pocketbase.dart';
 
 // สร้าง PocketBase instance
-final pb = PocketBase('https://partially-magical-cougar.ngrok-free.app');
+final pb = PocketBase('https://chitipat07.pockethost.io');
 
 // คลาส User เพื่อเก็บข้อมูลผู้ใช้
 class User {
