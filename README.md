@@ -4,4 +4,4 @@
 [วิดีโอการใช้งาน mobileapp](https://drive.google.com/file/d/1xS6bp6pLvbhJsej82GuYV9h8dhEwpZBW/view?usp=sharing)<br>
 
 # สามารถ Download apk ได้ที่นี้้
-[Download apk](https://drive.google.com/file/d/1W1WXLiSsczWB-sapqGfA-dqv-1G2Cgrq/view?usp=sharing)
+[Download apk](https://drive.usercontent.google.com/download?id=1W1WXLiSsczWB-sapqGfA-dqv-1G2Cgrq&export=download&authuser=0)
