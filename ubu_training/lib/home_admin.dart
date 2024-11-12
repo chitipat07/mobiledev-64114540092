@@ -131,7 +131,7 @@ class _HomeAdminState extends State<HomeAdmin> {
                       child: CourseCard(
                         title: course.getString('courseName'),
                         imageUrl:
-                            'https://partially-magical-cougar.ngrok-free.app/api/files/${course.collectionId}/${course.id}/${course.getString('image')}',
+                            'https://chitipat07.pockethost.io/api/files/${course.collectionId}/${course.id}/${course.getString('image')}',
                         date: course.getString('courseDate'),
                         applyDate: 'เปิดรับสมัครถึงวันที่: ${course.getString('registrationOpenDate')}',
                         onEditPressed: () {
